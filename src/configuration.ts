@@ -5,6 +5,12 @@ import * as orm from '@midwayjs/orm';
 import { Application } from 'egg';
 import { join } from 'path';
 
+import * as swagger from '@midwayjs/swagger';
+
+@Configuration({
+  imports: [swagger],
+})
+export class ContainerConfiguration {}
 @Configuration({
   imports: [orm],
   importConfigs: [join(__dirname, './config')],
