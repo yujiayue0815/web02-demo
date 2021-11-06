@@ -9,6 +9,7 @@ import {
   Body,
   Put,
   Del,
+  Validate,
 } from '@midwayjs/decorator';
 import {Context} from 'egg';
 import {IGetUserResponse} from '../interface';
@@ -33,6 +34,7 @@ export class APIController {
   }
 
   @Post('/save')
+  @Validate()
   async save(@Body(ALL) student: Student): Promise<IGetUserResponse> {
     const result = await this.studentService.save(student);
     return {success: true, message: 'OK', data: result};
